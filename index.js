@@ -18,9 +18,10 @@ const projects = require('./routes/projects')
 const categories = require('./routes/categories')
 const favourites = require('./routes/favourites')
 const thumbnails = require('./routes/thumbnails')
-let port = process.env.PORT || 'mongodb://localhost:27017/myDatabase'
+// let port = process.env.PORT || 'mongodb://localhost:27017/myDatabase'
+let port = process.env.PORT || 3000
 
-mongoose.connect(port, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
+mongoose.connect(`mongodb:http://localhost:${port}`, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
   .then(() => console.log('I am connected'))
   .catch(error => console.log(error));
 
